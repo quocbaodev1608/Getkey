@@ -1,5 +1,5 @@
 /* ================== CONFIG ================== */
-const LINK4M = "https://link4m.com/xxxxx"; // ← THAY LINK
+const LINK4M = "https://link4m.com/8FxTihW"; // ← THAY LINK
 const EXPIRE = 48 * 60 * 60 * 1000;
 const SALT = "QBDEV";
 

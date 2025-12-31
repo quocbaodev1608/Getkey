@@ -2,80 +2,21 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Get Key</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-    background: linear-gradient(135deg,#141e30,#243b55);
-    font-family: Arial;
-    color: white;
-    text-align: center;
-    padding-top: 100px;
-}
-.box {
-    background: rgba(0,0,0,0.6);
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 420px;
-    margin: auto;
-}
-button {
-    padding: 12px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #00ffcc;
-}
-.key {
-    margin-top: 20px;
-    background: black;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 18px;
-}
-</style>
+<title>Secure GetKey</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="box">
-<h2>🔐 GET KEY</h2>
-<p>Key có thời hạn – hết hạn phải vượt link lại</p>
-<button onclick="getKey()">NHẬN KEY</button>
-<div class="key" id="keyBox">Chưa có key</div>
+    <h2>🔐 GET KEY PRO</h2>
+    <p id="msg">Checking security...</p>
+
+    <div id="data" class="hide">
+        <div id="key"></div>
+        <p>⏳ Còn lại: <span id="time"></span></p>
+    </div>
 </div>
 
-<script>
-const LINK_VUOT = "https://link4m.com/8FxTihW"; // THAY LINK Ở ĐÂY
-const KEY_TIME = 24 * 60 * 60 * 1000;
-
-function randomKey(){
-    const c="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let k="QBV-";
-    for(let i=0;i<3;i++){
-        for(let j=0;j<4;j++) k+=c[Math.floor(Math.random()*c.length)];
-        if(i<2) k+="-";
-    }
-    return k;
-}
-
-function getKey(){
-    const key=localStorage.getItem("key");
-    const time=localStorage.getItem("time");
-    if(!key||Date.now()-time>KEY_TIME){
-        localStorage.clear();
-        window.location.href=LINK_VUOT;
-        return;
-    }
-    document.getElementById("keyBox").innerText=key;
-}
-
-if(!localStorage.getItem("key")){
-    localStorage.setItem("key",randomKey());
-    localStorage.setItem("time",Date.now());
-}
-</script>
-
+<script src="secure.js"></script>
 </body>
 </html>

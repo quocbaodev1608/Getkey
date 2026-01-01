@@ -1,7 +1,7 @@
 /* ================== CONFIG ================== */
 const LINK4M = "https://link4m.com/8FxTihW"; // ← THAY LINK
 const EXPIRE = 48 * 60 * 60 * 1000;
-const SALT = "QBDEV";
+const SALT = "WARVN_SECRET_123";
 
 /* ================== ANTI DEVTOOLS ================== */
 setInterval(() => {
